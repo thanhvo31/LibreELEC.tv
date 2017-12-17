@@ -65,10 +65,6 @@ if [ -f $STAMP ] ; then
   if [ ! "$PKG_DEEPMD5" = "$STAMP_PKG_DEEPMD5" -o ! "$PKG_STAMP" = "$STAMP_PKG_STAMP" ] ; then
     rm -f $STAMP
   fi
-
-  if [ "$1" = "u-boot" -a ! "$UBOOT_SYSTEM" = "$STAMP_UBOOT_SYSTEM" ]; then
-    rm -f $STAMP
-  fi
 fi
 
 if [ -f $STAMP ]; then
@@ -558,7 +554,3 @@ PKG_DEEPMD5=$(find $STAMP_DEPENDS -exec md5sum {} \; 2>/dev/null | sort | md5sum
 for i in PKG_NAME PKG_DEEPMD5 PKG_STAMP; do
   echo "STAMP_$i=\"${!i}\"" >> $STAMP
 done
-
-if [ "$1" = "u-boot" ]; then
-  echo "STAMP_UBOOT_SYSTEM=\"${UBOOT_SYSTEM}\"" >> $STAMP
-fi
