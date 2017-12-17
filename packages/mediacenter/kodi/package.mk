@@ -244,6 +244,8 @@ PKG_CMAKE_OPTS_TARGET="-DNATIVEPREFIX=$TOOLCHAIN \
                        $KODI_BLURAY \
                        $KODI_PLAYER"
 
+PKG_STAMP="${PKG_CMAKE_OPTS_TARGET//$'\n'/ }"
+
 pre_configure_target() {
 # kodi should never be built with lto
   strip_lto
