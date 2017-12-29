@@ -58,6 +58,8 @@ else
   exit 1
 fi
 
+PKG_STAMP="$PKG_MALI_FILE"
+
 configure_target() {
   if [ ! -f "$PKG_BUILD/lib/$PKG_MALI_ARCH/$PKG_MALI_FILE" ]; then
     echo "ERROR: $PKG_MALI_ARCH/$PKG_MALI_FILE does not exist, aborting."
